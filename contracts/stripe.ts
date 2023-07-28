@@ -8,9 +8,9 @@
  */
 
 declare module '@ioc:Mezielabs/Stripe' {
-    import Stripe from 'stripe'
+  import Stripe from 'stripe'
 
-    const stripe: Stripe
+  const stripe: Stripe
 
   export default stripe
 }

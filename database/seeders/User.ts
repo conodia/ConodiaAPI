@@ -16,11 +16,19 @@ export default class extends BaseSeeder {
         const user = await User.findByOrFail('username', 'Panda')
         await user.related('permissions').sync([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25])
 
+
         await WebsocketClients.create({
             name: 'Bot 1',
-            secret: "MBX9Mx8mMa32dyVqcr4378Y7U",
+            secret: "azeergreg5egreg2",
             id: "21",
             type: 'discord'
+        })
+
+        await WebsocketClients.create({
+            name: 'Minecraft',
+            secret: "azeergrzegzregzzeg5egreg2",
+            id: "1",
+            type: 'minecraft'
         })
     }
 }

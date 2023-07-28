@@ -3,38 +3,50 @@ import './api_auth'
 
 Route.group(() => {
     Route.group(() => {
+        Route.post('/create', 'VerificationsController.create')
+        Route.post('/verify/:id/:code', 'VerificationsController.verify')
+    }).prefix('/verification')
+
+    Route.group(() => {
+        Route.resource('/', 'GiveawaysController').as("giveaway.ressource").except(['edit', 'create'])
+        Route.post('/:id/addmember', 'GiveawaysController.addMember')
+        Route.delete('/:id', 'GiveawaysController.destroy')
+    }).prefix('/giveaways')
+
+    Route.group(() => {
+        Route.resource('/', 'BlacklistsController').as("blacklist.ressource").except(['edit', 'create'])
+        Route.delete('/:id', 'BlacklistsController.destroy')
+    }).prefix('/blacklists')
+
+    Route.group(() => {
         Route.resource('/', 'TicketsController').as("tickets.ressource").except(['edit', 'create'])
         Route.delete('/:id', 'TicketsController.destroy')
     }).prefix('/tickets')
 
     Route.group(() => {
-        Route.resource('/', 'OrdersController').as("orders.ressource").except(['edit', 'create'])
-        Route.delete('/:id', 'OrdersController.destroy')
-        Route.group(() => {
-            Route.post('/:id', 'OffersController.store')
-            Route.get('/:id', 'OffersController.show')
-            Route.post('/:id/accept', 'OffersController.accept')
-            Route.delete('/:id/refuse', 'OffersController.destroy')
-        }).prefix('/offers')
-        Route.get('/:id/offers', 'OffersController.index')
-
-        Route.get('/:id/offers/as-offer/:userId', 'OffersController.asOfferer')
-        Route.get('/:id/offers/is-busied/:userId', 'OffersController.isBusied')
-        Route.put('/:id/offers/busy', 'OffersController.busy')
-    }).prefix('/orders')
+        Route.resource('/', 'InvitesController').as("invites.ressource").except(['create'])
+        Route.put("/:id", "InvitesController.edit")
+        Route.post("/:id/addinvite", "InvitesController.addInvite")
+        Route.delete('/:id/removeinvite/:userId', 'InvitesController.removeInvite')
+        Route.delete('/:id', 'InvitesController.destroy')
+    }).prefix('/invites')
 
     Route.group(() => {
-        Route.resource('/', 'BanquesController').as("banques.ressource").except(['edit', 'create'])
-        Route.put('/:id/add', 'BanquesController.add')
-        Route.put('/:id/remove', 'BanquesController.remove')
-        Route.delete('/:id', 'BanquesController.destroy')
-    }).prefix('/banques')
+        Route.resource('/', 'PlayersController').as("players.ressource").except(['edit', 'create'])
+        Route.delete('/:id', 'PlayersController.destroy')
+    }).prefix('/players')
 
     Route.group(() => {
-        Route.get('/', 'UserSettingsController.index')
-        Route.post('/', 'UserSettingsController.store')
-        Route.put('/:id', 'UserSettingsController.update')
-        Route.post('/:id/review', 'ReviewsController.store')
-        Route.delete('/:id/review/:reviewId', 'ReviewsController.destroy')
-    }).prefix('/users')
+        Route.post('/create', 'VerificationsController.create').as("link.create")
+        Route.post('/verify/:id', 'VerificationsController.verify').as("link.verify")
+        Route.get('/islink/:id', 'VerificationsController.isLink').as("link.islink")
+        Route.delete('/unlink/:id', 'VerificationsController.unlink').as("link.destroy")
+    }).prefix("/link")
+
+    Route.group(() => {
+        Route.post('/create', 'RushGamesController.create').as("rushgame.create")
+        Route.post('/addchannels/:id', 'RushGamesController.addChannels').as("rushgame.addchannels")
+        Route.delete('/:id', 'RushGamesController.destroy').as("rushgame.destroy")
+    }).prefix("/rush")
+
 }).prefix('api/v1').middleware(['api'])

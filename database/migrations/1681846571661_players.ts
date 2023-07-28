@@ -1,15 +1,17 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-    protected tableName = 'user_settings'
+    protected tableName = 'players'
 
     public async up() {
         this.schema.createTable(this.tableName, (table) => {
             table.increments('id')
-            table.string('user_id').notNullable()
-            table.string('portofolio').nullable() // LINK
-            table.string('paypal').nullable() // LINK
-            table.string('timezone').nullable() // LINK
+            table.string('discord_user_id')
+            table.string('discord_username')
+            table.string('minecraft_playername')
+            table.string('minecraft_uuid')
+            table.boolean('verified').defaultTo(true)
+            table.json('stats').defaultTo("{}")
 
             /**
              * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

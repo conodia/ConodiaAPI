@@ -1,0 +1,114 @@
+@layout('layouts/dashboard')
+
+@set('user', auth.user)
+@set('emplacement', "Modification d'un piti robot")
+
+@section('body')
+<div class="flex-row min-w-full min-h-screen text-white p-16 md:flex space-x-8 justify-center items-center">
+  <form action="{{ route('bot.update', [bot.id]) }}" method="POST">
+    <div class="rounded-md shadow-sm space-y-4">
+      @if(flashMessages.has('success'))
+        @!component('components/actionbar', {
+          type: 'success',
+          text: flashMessages.get('success'),
+        })
+      @endif
+      <h1 class="text-indigo-500 flex justify-center text-4xl mb-10">
+        Modifier un superbe bot
+      </h1>
+
+      <div class="mb-5">
+        <label for="id" class="block text-sm font-medium text-indigo-500">Id</label>
+        <div>
+          <input type="text" name="id"
+            class="block shadow-sm text-black w-full rounded-full border-gray-200 pr-12 focus:ring-indigo-500 focus:ring-offset-indigo-300 sm:text-sm"
+            value="{{ bot.id }}">
+        </div>
+        @if(flashMessages.has('errors.id'))
+        <h1 class="text-red-500 text-sm">{{ flashMessages.get('errors.id') }}</h1>
+        @endif
+      </div>
+
+      <div class="mb-5">
+        <label for="name" class="block text-sm font-medium text-indigo-500">Nom</label>
+        <div>
+          <input type="text" name="name"
+            class="block shadow-sm text-black w-full rounded-full border-gray-200 pr-12 focus:ring-indigo-500 focus:ring-offset-indigo-300 sm:text-sm"
+            value="{{ bot.name }}">
+        </div>
+        @if(flashMessages.has('errors.name'))
+        <h1 class="text-red-500 text-sm">{{ flashMessages.get('errors.name') }}</h1>
+        @endif
+      </div>
+
+      <div class="mb-5">
+        <label for="serverId" class="block text-sm font-medium text-indigo-500">Serveur Id</label>
+        <div>
+          <input type="text" name="serverId"
+            class="block shadow-sm text-black w-full rounded-full border-gray-200 pr-12 focus:ring-indigo-500 focus:ring-offset-indigo-300 sm:text-sm"
+            value="{{ bot.serverId }}">
+        </div>
+        @if(flashMessages.has('errors.serverId'))
+        <h1 class="text-red-500 text-sm">{{ flashMessages.get('errors.serverId') }}</h1>
+        @endif
+      </div>
+
+      <div class="mb-5 flex">
+        <div>
+        <label for="licence" class="block text-sm font-medium text-indigo-500">Licence</label>
+        <div>
+          <input id="licence" type="text" name="licence"
+            class="block shadow-sm text-black w-full rounded-full border-gray-200 pr-12 focus:ring-indigo-500 focus:ring-offset-indigo-300 sm:text-sm"
+            value="{{ bot.licence }}">
+        </div>
+        @if(flashMessages.has('errors.licence'))
+        <h1 class="text-red-500 text-sm">{{ flashMessages.get('errors.licence') }}</h1>
+        @endif
+      </div>
+      <div class="h-full flex justify-center items-center mt-3">
+        <span id="generate" class="text-indigo-500 hover:bg-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-indigo-300 duration-200 p-2 rounded-full text-sm font-medium m-2 cursor-pointer">Regénerer</span>
+      </div>
+      </div>
+
+      <div class="rounded-md">
+        <label class="relative inline-flex items-center cursor-pointer">
+          @if(bot.isActivated)
+            <input type="checkbox" value="" id="isActivated" name="isActivated" class="sr-only peer" checked>
+          @else
+            <input type="checkbox" value="" id="isActivated" name="isActivated" class="sr-only peer">
+          @endif
+          <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+          <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Activé ?</span>
+        </label>
+      </div>
+
+      <div class="mb-5">
+        <button id="submit-button" data-callback="onSubmit" data-sitekey="6Le_gYQiAAAAAFuNVAqShsTnDGOskGgmqW3QL6kx"
+          class="g-recaptcha duration-200 group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-full text-white bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 mt-5">
+          <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+            <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+              </svg>
+            </span>
+          </span>
+          Modifier ! </button>
+      </div>
+  </form>
+</div>
+
+<script>
+  window.addEventListener('click', function (e) {
+    if(e.target.id === 'generate') {
+      const licencePath = "LICENCE_xxxxxxxxxxxxxxxxxxxxxx.xxxxxxxxxxxxxxxnxxxxxxxxxxx.xxxxxxxxxxxxxxxxpandaxxxxxxxxx"
+      const input = document.getElementById('licence')
+      input.value =  licencePath.replace(/x/g, function(c) {
+        var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+        return v.toString(16);
+      });
+     }
+});
+</script>
+@endsection

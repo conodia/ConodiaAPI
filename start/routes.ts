@@ -19,8 +19,8 @@
 */
 import HealthCheck from '@ioc:Adonis/Core/HealthCheck'
 import Route from '@ioc:Adonis/Core/Route'
-//import './routes/auth'
-//import './routes/dashboard'
+import './routes/auth'
+import './routes/dashboard'
 import './routes/api'
 
 Route.get('/',  async ({ response }) => {

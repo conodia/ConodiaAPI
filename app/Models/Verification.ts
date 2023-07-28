@@ -1,18 +1,18 @@
 import {DateTime} from 'luxon'
 import {BaseModel, column} from '@ioc:Adonis/Lucid/Orm'
 
-export default class Banque extends BaseModel {
+export default class Verification extends BaseModel {
     @column({isPrimary: true})
     public id: number
 
     @column()
-    public userId: string
+    public discordUserId: string
 
     @column()
-    public money: number
+    public discordUsername: string
 
     @column()
-    public moneyTotal: number
+    public code: string
 
     @column.dateTime({autoCreate: true})
     public createdAt: DateTime

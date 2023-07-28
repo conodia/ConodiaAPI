@@ -1,6 +1,6 @@
-import {DateTime} from 'luxon'
+import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import {BaseModel, beforeCreate, beforeSave, column, manyToMany, ManyToMany} from '@ioc:Adonis/Lucid/Orm'
+import {column, beforeSave, BaseModel, beforeCreate, manyToMany, ManyToMany} from '@ioc:Adonis/Lucid/Orm'
 import * as crypto from 'crypto'
 import Role from "App/Models/Role";
 import Permission from "App/Models/Permission";

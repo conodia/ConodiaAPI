@@ -1,4 +1,4 @@
-import type {HttpContextContract} from '@ioc:Adonis/Core/HttpContext'
+import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import WsConnexionValidator from "App/Validators/WsConnexionValidator";
 import WebsocketClients from "App/Models/WebsocketClients";
 import Token from "App/Models/Token";

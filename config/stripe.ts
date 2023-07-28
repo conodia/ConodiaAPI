@@ -8,7 +8,7 @@
  */
 
 import Env from '@ioc:Adonis/Core/Env'
-import {StripeConfig} from '@ioc:Mezielabs/Stripe'
+import { StripeConfig } from '@ioc:Mezielabs/Stripe'
 
 const stripeConfig: StripeConfig = {
   secretKey: Env.get('STRIPE_SECRET_KEY') as string,

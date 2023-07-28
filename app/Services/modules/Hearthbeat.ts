@@ -1,4 +1,4 @@
-import {WebSocket} from 'ws'
+import { WebSocket } from 'ws'
 import WebsocketClients from "App/Models/WebsocketClients";
 import {OpCodes} from "App/Codes/OpCodes";
 

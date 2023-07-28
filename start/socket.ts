@@ -1,6 +1,6 @@
 import Ws from 'App/Services/Ws'
-import type {ApplicationContract} from '@ioc:Adonis/Core/Application'
-import {WebSocket} from 'ws'
+import type { ApplicationContract } from '@ioc:Adonis/Core/Application'
+import { WebSocket } from 'ws'
 import Message from 'App/Services/modules/Messages'
 import Auth from 'App/Services/modules/Auth'
 

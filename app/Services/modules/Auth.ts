@@ -1,5 +1,5 @@
-import {WebSocket} from 'ws'
-import {inject} from '@adonisjs/fold';
+import { WebSocket } from 'ws'
+import { inject } from '@adonisjs/fold';
 import Token from "App/Models/Token";
 import {OpCodes} from "App/Codes/OpCodes";
 

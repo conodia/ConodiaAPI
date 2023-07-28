@@ -1,5 +1,5 @@
-import {Server} from 'ws'
-import {ServerContract} from '@ioc:Adonis/Core/Server'
+import { Server } from 'ws'
+import { ServerContract } from '@ioc:Adonis/Core/Server'
 
 export default class Ws {
   public io: Server

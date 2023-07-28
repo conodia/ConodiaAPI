@@ -5,7 +5,7 @@
  * file.
  */
 
-import {actions, policies} from '../start/bouncer'
+import { actions, policies } from '../start/bouncer'
 
 declare module '@ioc:Adonis/Addons/Bouncer' {
 	type ApplicationActions = ExtractActionsTypes<typeof actions>
