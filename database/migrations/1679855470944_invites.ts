@@ -1,17 +1,17 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-    protected tableName = 'players'
+    protected tableName = 'invites'
 
     public async up() {
         this.schema.createTable(this.tableName, (table) => {
-            table.string('id').primary()
-            table.string('discord_user_id')
-            table.string('discord_username')
-            table.string('minecraft_playername')
-            table.string('minecraft_uuid')
-            table.boolean('verified').defaultTo(true)
-            table.json('stats').defaultTo("{}")
+            table.increments('id').primary()
+            table.string('user_id').notNullable()
+            table.string('guild_id').notNullable()
+            table.integer('total').defaultTo(0)
+            table.integer('actual').defaultTo(0)
+            table.integer("leaves").defaultTo(0)
+            table.integer("bonus").defaultTo(0)
 
             /**
              * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

@@ -1,10 +1,9 @@
 import Route from '@ioc:Adonis/Core/Route'
-import './api_auth'
 
 Route.group(() => {
     Route.group(() => {
         Route.post('/create', 'VerificationsController.create')
-        Route.post('/verify/:id/:code', 'VerificationsController.verify')
+        Route.get('/verify/:id/:code', 'VerificationsController.verify')
     }).prefix('/verification')
 
     Route.group(() => {
@@ -29,12 +28,8 @@ Route.group(() => {
         Route.post("/:id/addinvite", "InvitesController.addInvite")
         Route.delete('/:id/removeinvite/:userId', 'InvitesController.removeInvite')
         Route.delete('/:id', 'InvitesController.destroy')
+        Route.delete('/:id/reset', 'InvitesController.reset')
     }).prefix('/invites')
-
-    Route.group(() => {
-        Route.resource('/', 'PlayersController').as("players.ressource").except(['edit', 'create'])
-        Route.delete('/:id', 'PlayersController.destroy')
-    }).prefix('/players')
 
     Route.group(() => {
         Route.post('/create', 'VerificationsController.create').as("link.create")
@@ -44,9 +39,7 @@ Route.group(() => {
     }).prefix("/link")
 
     Route.group(() => {
-        Route.post('/create', 'RushGamesController.create').as("rushgame.create")
-        Route.post('/addchannels/:id', 'RushGamesController.addChannels').as("rushgame.addchannels")
-        Route.delete('/:id', 'RushGamesController.destroy').as("rushgame.destroy")
-    }).prefix("/rush")
-
+        Route.post('/', 'StaffConnexionsController.create').as("staffconnexion.create")
+        Route.delete('/:id', 'StaffConnexionsController.delete').as("staffconnexion.delete")
+    }).prefix("/staffconnexion")
 }).prefix('api/v1').middleware(['api'])

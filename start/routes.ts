@@ -22,6 +22,7 @@ import Route from '@ioc:Adonis/Core/Route'
 import './routes/auth'
 import './routes/dashboard'
 import './routes/api'
+import './routes/api_auth'
 
 Route.get('/',  async ({ response }) => {
   return response.json({

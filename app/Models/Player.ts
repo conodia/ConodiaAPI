@@ -21,6 +21,9 @@ export default class Player extends BaseModel {
     @column()
     public verified: boolean
 
+    @column()
+    public ip: string | null
+
     @belongsTo(() => Job)
     public job: BelongsTo<typeof Job>
 
