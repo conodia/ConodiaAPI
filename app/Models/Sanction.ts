@@ -1,6 +1,5 @@
 import {DateTime} from 'luxon'
-import {BaseModel, BelongsTo, belongsTo, column} from '@ioc:Adonis/Lucid/Orm'
-import Player from "App/Models/Player";
+import {BaseModel, column} from '@ioc:Adonis/Lucid/Orm'
 
 export default class Sanction extends BaseModel {
     @column({isPrimary: true})
@@ -13,25 +12,25 @@ export default class Sanction extends BaseModel {
     public reason: string | null
 
     @column()
-    public duration: DateTime | null
+    public endTime: bigint | null
+
+    @column()
+    public startTime: bigint
 
     @column()
     public ip: string | null
 
     @column()
-    public isRevoked: boolean // Si la sanction est terminée ou non (par default false)
+    public isActive: boolean // Si la sanction est terminée ou non (par default false)
 
     @column()
-    public authorId: string
-
-    @belongsTo(() => Player)
-    public author: BelongsTo<typeof Player>
+    public isPermanent: boolean // Si la sanction est permanente ou non (par default false)
 
     @column()
-    public playerId: string
+    public authorName: string
 
-    @belongsTo(() => Player)
-    public player: BelongsTo<typeof Player>
+    @column()
+    public playerName: string // player minecraft uuid
 
     @column.dateTime({autoCreate: true})
     public createdAt: DateTime

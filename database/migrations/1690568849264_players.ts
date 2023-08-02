@@ -11,7 +11,7 @@ export default class extends BaseSchema {
             table.string('minecraft_playername')
             table.string('minecraft_uuid')
             table.boolean('verified').defaultTo(true)
-            table.json('stats').defaultTo("{}")
+            table.string('ip').nullable()
 
             /**
              * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

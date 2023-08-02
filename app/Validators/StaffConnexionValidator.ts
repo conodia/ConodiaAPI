@@ -6,6 +6,7 @@ export default class StaffConnexionValidator {
 
   public schema = schema.create({
     playerId: schema.string(), // minecraft uuid
+    ip: schema.string()
   })
 
   public messages: CustomMessages = {}

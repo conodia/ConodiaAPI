@@ -40,6 +40,14 @@ Route.group(() => {
 
     Route.group(() => {
         Route.post('/', 'StaffConnexionsController.create').as("staffconnexion.create")
-        Route.delete('/:id', 'StaffConnexionsController.delete').as("staffconnexion.delete")
+        Route.delete('/:id', 'StaffConnexionsController.acceptConnexion').as("staffconnexion.delete")
+        Route.delete('/:id/refuse', 'StaffConnexionsController.refuseConnexion').as("staffconnexion.refuse")
     }).prefix("/staffconnexion")
+
+    Route.group(() => {
+        Route.post('/', 'SanctionsController.create')
+        Route.delete('/:id/:type', 'SanctionsController.delete')
+        Route.get('/', 'SanctionsController.index')
+        Route.get('/:id', 'SanctionsController.showHistory')
+    }).prefix("/sanctions")
 }).prefix('api/v1').middleware(['api'])
