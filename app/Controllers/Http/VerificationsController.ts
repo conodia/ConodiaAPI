@@ -43,7 +43,7 @@ export default class VerificationsController {
 
         return response.status(200).json({
             message: 'Player found',
-            linked: true,
+            linked: player.verified,
             player: player
         })
     }
@@ -70,7 +70,7 @@ export default class VerificationsController {
             }
         })
 
-        const player = await Player.create({
+        const player = await Player.updateOrCreate({"minecraftUuid": data.uuid}, {
             discordUserId: verification.discordUserId,
             discordUsername: verification.discordUsername,
             minecraftPlayername: data.playername,

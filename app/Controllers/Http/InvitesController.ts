@@ -4,7 +4,6 @@ import Invite from "App/Models/Invite";
 import InvitedUser from "App/Models/InvitedUser";
 
 export default class InvitesController {
-
     public async index({ response }: HttpContextContract) {
         const invites = await Invite.query().preload('invitedUsers')
 

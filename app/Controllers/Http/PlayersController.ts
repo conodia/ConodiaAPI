@@ -4,30 +4,42 @@ import {PlayerUpdateValidator} from "App/Validators/PlayerValidator";
 
 export default class PlayersController {
     public async index({response}: HttpContextContract) {
-        const players = await Player.query()
+        const players = await Player.query().preload('spawners')
         return response.status(200).json({
             message: "Players fetched.",
             players: players
         })
     }
 
-    public async show({params, response}: HttpContextContract) {
-        const player = await Player.query().where('id', params.id).orWhere('uuid', params.id).orWhere('discordUserId', params.id).first()
-
-        if(!player) {
-            return response.status(404).json({
-                message: "Player not found."
-            })
-        }
-
+    public async create({request, response}: HttpContextContract) {
+        const data = await request.validate(PlayerUpdateValidator)
+        const player = await Player.create(data)
         return response.status(200).json({
-            message: "Player fetched.",
+            message: "Player created.",
             player: player
         })
     }
 
+    public async show({params, response}: HttpContextContract) {
+        let player = await Player.query().where('id', params.id).orWhere('minecraftUuid', params.id).orWhere('discordUserId', params.id).preload("spawners").first()
+        if(!player) {
+            return response.status(404).json({
+                message: "Player not found.",
+                exists: false
+            })
+        }
+        // @ts-ignore
+        player.spawners = await player.related("spawners").query().preload("location")
+
+        return response.status(200).json({
+            message: "Player fetched.",
+            exists: true,
+            player: player,
+        })
+    }
+
     public async update({params, request, response}: HttpContextContract) {
-        const player = await Player.query().where('id', params.id).orWhere('uuid', params.id).orWhere('discordUserId', params.id).first()
+        const player = await Player.query().where('id', params.id).orWhere('minecraftUuid', params.id).orWhere('discordUserId', params.id).first()
 
         if(!player) {
             return response.status(404).json({
@@ -48,7 +60,7 @@ export default class PlayersController {
     }
 
     public async destroy({params, response}: HttpContextContract) {
-        const player = await Player.query().where('id', params.id).orWhere('uuid', params.id).orWhere('discordUserId', params.id).first()
+        const player = await Player.query().where('id', params.id).orWhere('minecraftUuid', params.id).orWhere('discordUserId', params.id).first()
 
         if(!player) {
             return response.status(404).json({

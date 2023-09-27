@@ -1,6 +1,7 @@
 import {DateTime} from 'luxon'
-import {BaseModel, column, BelongsTo, belongsTo, beforeCreate} from '@ioc:Adonis/Lucid/Orm'
+import {BaseModel, column, BelongsTo, belongsTo, beforeCreate, manyToMany, ManyToMany} from '@ioc:Adonis/Lucid/Orm'
 import Job from "App/Models/Job";
+import Spawner from "App/Models/Spawner";
 
 export default class Player extends BaseModel {
     @column({isPrimary: true})
@@ -26,6 +27,9 @@ export default class Player extends BaseModel {
 
     @belongsTo(() => Job)
     public job: BelongsTo<typeof Job>
+
+    @manyToMany(() => Spawner)
+    public spawners: ManyToMany<typeof Spawner>
 
     @column.dateTime({autoCreate: true})
     public createdAt: DateTime

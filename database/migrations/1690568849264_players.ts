@@ -10,7 +10,7 @@ export default class extends BaseSchema {
             table.string('discord_username')
             table.string('minecraft_playername')
             table.string('minecraft_uuid')
-            table.boolean('verified').defaultTo(true)
+            table.boolean('verified').defaultTo(false)
             table.string('ip').nullable()
 
             /**

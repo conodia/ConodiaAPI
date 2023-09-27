@@ -50,4 +50,29 @@ Route.group(() => {
         Route.get('/', 'SanctionsController.index')
         Route.get('/:id', 'SanctionsController.showHistory')
     }).prefix("/sanctions")
+
+    Route.group(() => {
+        Route.post('/', 'JobsController.create')
+        Route.delete('/:id', 'JobsController.delete')
+        Route.get('/', 'JobsController.index')
+        Route.get('/:id', 'JobsController.show')
+        Route.post('/:id', 'JobsController.update')
+    }).prefix("/jobs")
+
+    Route.group(() => {
+        Route.post('/', 'PlayersController.create')
+        Route.delete('/:id', 'PlayersController.delete')
+        Route.get('/', 'PlayersController.index')
+        Route.get('/:id', 'PlayersController.show')
+        Route.post('/:id', 'PlayersController.update')
+    }).prefix("/player")
+
+    Route.group(() => {
+        // spawner routes
+        Route.post('/:id', 'SpawnersController.create')
+        Route.delete('/:id', 'SpawnersController.delete')
+        Route.put('/:id/update', 'SpawnersController.update')
+        Route.get('/coords/:x/:y/:z/:world', 'SpawnersController.showByCoords')
+        Route.get('/:id', 'SpawnersController.show')
+    }).prefix("/spawners")
 }).prefix('api/v1').middleware(['api'])
