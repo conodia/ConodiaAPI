@@ -1,17 +1,11 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'spawners'
+  protected tableName = 'server_settings'
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.string("type")
-      table.integer("level")
-      table.boolean("is_premium")
-      // dont delete spawner if location is deleted
-      table.integer("location_id").unsigned().references("id").inTable("locations").onDelete("SET NULL")
-      table.string("player_id").unsigned().references("id").inTable("players").onDelete("CASCADE")
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
