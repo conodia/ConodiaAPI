@@ -75,4 +75,20 @@ Route.group(() => {
         Route.get('/coords/:x/:y/:z/:world', 'SpawnersController.showByCoords')
         Route.get('/:id', 'SpawnersController.show')
     }).prefix("/spawners")
+
+    Route.group(() => {
+        Route.get('/', 'ServerSettingsController.index').middleware([])
+        Route.put('/', 'ServerSettingsController.update')
+
+        Route.post("/request", "ServerSettingsController.requestEmergencyMc")
+        Route.post("/set-emergency/:id/:shutdown", "ServerSettingsController.requestEmergencyDiscord")
+    }).prefix("/settings")
+
+    Route.group(() => {
+        Route.get('/', 'FactionLevelsController.index')
+        Route.post('/', 'FactionLevelsController.store')
+        Route.delete('/:id', 'FactionLevelsController.destroy')
+        Route.get('/:id', 'FactionLevelsController.show')
+        Route.put('/:id', 'FactionLevelsController.update')
+    }).prefix("/levels")
 }).prefix('api/v1').middleware(['api'])

@@ -3,7 +3,6 @@ import SpawnerValidator from "App/Validators/SpawnerValidator";
 import Spawner from "App/Models/Spawner";
 import Player from "App/Models/Player";
 import Location from "App/Models/Location";
-import * as console from "console";
 
 export default class SpawnersController {
     public async create({ request, response, params }: HttpContextContract) {
@@ -25,16 +24,13 @@ export default class SpawnersController {
         const data = await request.validate(SpawnerValidator)
 
         if(data.location === undefined || data.location === null) {
-            console.log("deleted")
             await spawner.location.delete()
         } else {
             if(spawner.location !== null) {
-                console.log("merged")
                 await spawner.location.merge({
                     ...data.location,
                 }).save()
             } else {
-                console.log("created")
                 const location = await Location.create({
                     ...data.location,
                 })

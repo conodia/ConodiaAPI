@@ -1,0 +1,135 @@
+miner:
+  - argent.5
+  - rare.1
+  -
+  - quete.2
+  - argent.10
+  -
+  - rare.2;argent.15
+  -
+  - quete.3
+  - argent.20
+  -
+  - rare.3
+  -
+  - quete.4
+  - argent.25
+  -
+  - rare.4;argent.30
+  -
+  - quete.5
+  - argent.35
+  -
+  - temps.2
+  -
+  - rare.5
+
+woodcutter:
+  - argent.5
+  -
+  - quete.1
+  -
+  - argent.10
+  -
+  - quete.2
+  -
+  - argent.15
+  -
+  - quete.3
+  -
+  - argent.20
+  -
+  - quete.4
+  -
+  - temps.1
+  -
+  - argent.25
+  -
+  - quete.5
+  -
+  - temps.2
+  -
+  - argent.30
+
+builder:
+  - quete.1
+  -
+  - argent.5
+  -
+  - quete.2
+  -
+  - argent.10
+  -
+  - quete.3
+  -
+  - argent.15
+  -
+  - quete.4
+  -
+  - temps.1
+  -
+  - argent.20
+  -
+  - quete.5
+  -
+  - temps.2
+  -
+  - argent.25
+
+hunter:
+  - argent.5
+  -
+  - quete.1
+  -
+  - argent.10
+  -
+  - quete.2
+  -
+  - argent.15
+  -
+  - quete.3
+  -
+  - argent.20
+  -
+  - quete.4
+  -
+  - temps.1
+  -
+  - argent.25
+  -
+  - quete.5
+  -
+  - temps.2
+  -
+  - argent.30
+
+farmer:
+  - quete.5
+  -
+  - quete.6
+  -
+  - vote.5
+  -
+  - quete.2
+  -
+  - argent.1
+  -
+  - quete.3
+  -
+  - quete.2
+  -
+  - argent.2
+  -
+  - quete.4
+  -
+  - argent.2
+  -
+  - argent.1
+  -
+  - quete.5
+  -
+  - argent.1
+  -
+  - quete.4
+  -
+  - temps.1

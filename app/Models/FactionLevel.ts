@@ -1,21 +1,18 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
-export default class ServerSetting extends BaseModel {
+export default class FactionLevel extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
   @column()
-  public maintenanceMode: MaintenanceMode
+  public factionName: string
 
   @column()
-  public maintenanceMessage: string
+  public xp: number
 
   @column()
-  public isEmergency: boolean
-
-  @column()
-  public requestedEmergency: boolean
+  public points: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -23,5 +20,3 @@ export default class ServerSetting extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 }
-
-type MaintenanceMode = "staff" | "op" | "none"

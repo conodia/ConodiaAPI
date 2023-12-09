@@ -1,0 +1,428 @@
+ShopName: vipSpawners
+DisplayName: "&bVIP &9➜ &bSpawneurs"
+signs:
+  text: '[newshop]'
+  NeedPermissionToCreateSign: false
+Command: vipSpawners:vips
+CloseShopAfterPurchase: false
+shop:
+  Infohorolo:
+    MenuItem:
+      - enchantment:DURABILITY#1
+      - itemflag:hide_enchants
+      - type:SKULL_ITEM
+      - durability:3
+      - 'playerhead: %player%'
+      - amount:1
+      - name:&9%player%
+      - lore1:&8&m----------------------------
+      - 'lore2:'
+      - "lore3:&9Informations &9➜"
+      - "lore4:"
+      - "lore5:&bGrade &9➜ &b%vault_rank%"
+      - "lore6:&bArgent &9➜ &9%vault_eco_balance_formatted%"
+      - "lore7:&bFaction &9➜ &9%factionsuuid_faction_name%"
+      - "lore8:&bPower &9➜ &9%factionsuuid_player_power% / 15"
+      - 'lore9:'
+      - lore10:&8&m----------------------------
+    RewardType: NOTHING
+    PriceType: NOTHING
+    ExtraPermission: ''
+    InventoryLocation: 5
+    CloseShopAfterPurchase: false
+  cochon:
+    MenuItem:
+      - enchantment:DURABILITY#1
+      - itemflag:hide_enchants
+      - type:52
+      - amount:1
+      - name:&9Spawneur à Cochons (1)
+      - lore1:&8&m----------------------------
+      - 'lore2:'
+      - "lore3:&9➜ &b350⛁"
+      - 'lore4:'
+      - lore5:&8&m----------------------------
+    RewardType: COMMAND
+    Reward:
+      - spawneradmin give %player% PIG 0 false 1
+    PriceType: POINTS
+    Price: 350.0
+    Message: "&9➜ &bTu as bien re\u00e7u ton spawner à cochons !"
+    ExtraPermission: ''
+    InventoryLocation: 20
+    CloseShopAfterPurchase: false
+  mouton:
+    MenuItem:
+      - enchantment:DURABILITY#1
+      - itemflag:hide_enchants
+      - type:52
+      - amount:1
+      - name:&9Spawneur à Moutons (1)
+      - lore1:&8&m----------------------------
+      - 'lore2:'
+      - "lore3:&9➜ &b350⛁"
+      - 'lore4:'
+      - lore5:&8&m----------------------------
+    RewardType: COMMAND
+    Reward:
+      - spawneradmin give %player% SHEEP 0 false 1
+    PriceType: POINTS
+    Price: 350.0
+    Message: "&9➜ &bTu as bien re\u00e7u ton spawner à moutons !"
+    ExtraPermission: ''
+    InventoryLocation: 21
+    CloseShopAfterPurchase: false
+  vache:
+    MenuItem:
+      - enchantment:DURABILITY#1
+      - itemflag:hide_enchants
+      - type:52
+      - amount:1
+      - name:&9Spawneur à Vaches (1)
+      - lore1:&8&m----------------------------
+      - 'lore2:'
+      - "lore3:&9➜ &b350⛁"
+      - 'lore4:'
+      - lore5:&8&m----------------------------
+    RewardType: COMMAND
+    Reward:
+      - spawneradmin give %player% COW 0 false 1
+    PriceType: POINTS
+    Price: 350.0
+    Message: "&9➜ &bTu as bien re\u00e7u ton spawner à vaches !"
+    ExtraPermission: ''
+    InventoryLocation: 22
+    CloseShopAfterPurchase: false
+  Poulet:
+    MenuItem:
+      - enchantment:DURABILITY#1
+      - itemflag:hide_enchants
+      - type:52
+      - amount:1
+      - name:&9Spawneur à Poulets (1)
+      - lore1:&8&m----------------------------
+      - 'lore2:'
+      - "lore3:&9➜ &b350⛁"
+      - 'lore4:'
+      - lore5:&8&m----------------------------
+    RewardType: COMMAND
+    Reward:
+      - spawneradmin give %player% CHICKEN 0 false 1
+    PriceType: POINTS
+    Price: 350.0
+    Message: "&9➜ &bTu as bien re\u00e7u ton spawner à poulets !"
+    ExtraPermission: ''
+    InventoryLocation: 23
+    CloseShopAfterPurchase: false
+  Zombie:
+    MenuItem:
+      - enchantment:DURABILITY#1
+      - itemflag:hide_enchants
+      - type:52
+      - amount:1
+      - name:&9Spawneur à Zombies (1)
+      - lore1:&8&m----------------------------
+      - 'lore2:'
+      - "lore3:&9➜ &b400⛁"
+      - 'lore4:'
+      - lore5:&8&m----------------------------
+    RewardType: COMMAND
+    Reward:
+      - spawneradmin give %player% ZOMBIE 0 false 1
+    PriceType: POINTS
+    Price: 400.0
+    Message: "&9➜ &bTu as bien re\u00e7u ton spawner à zombies !"
+    ExtraPermission: ''
+    InventoryLocation: 24
+    CloseShopAfterPurchase: false
+  Squelette:
+    MenuItem:
+      - enchantment:DURABILITY#1
+      - itemflag:hide_enchants
+      - type:52
+      - amount:1
+      - name:&9Spawneur à Squelettes (1)
+      - lore1:&8&m----------------------------
+      - 'lore2:'
+      - "lore3:&9➜ &b500⛁"
+      - 'lore4:'
+      - lore5:&8&m----------------------------
+    RewardType: COMMAND
+    Reward:
+      - spawneradmin give %player% SKELETON 0 false 1
+    PriceType: POINTS
+    Price: 500.0
+    Message: "&9➜ &bTu as bien re\u00e7u ton spawner à squelettes !"
+    ExtraPermission: ''
+    InventoryLocation: 25
+    CloseShopAfterPurchase: false
+  blaze:
+    MenuItem:
+      - enchantment:DURABILITY#1
+      - itemflag:hide_enchants
+      - type:52
+      - amount:1
+      - name:&9Spawneur à Blazes  (1)
+      - lore1:&8&m----------------------------
+      - 'lore2:'
+      - "lore3:&9➜ &b900⛁"
+      - 'lore4:'
+      - lore5:&8&m----------------------------
+    RewardType: COMMAND
+    Reward:
+      - spawneradmin give %player% BLAZE 0 false 1
+    PriceType: POINTS
+    Price: 900.0
+    Message: "&9➜ &bTu as bien re\u00e7u ton spawner à blazes !"
+    ExtraPermission: ''
+    InventoryLocation: 26
+    CloseShopAfterPurchase: false
+  creeper:
+    MenuItem:
+      - enchantment:DURABILITY#1
+      - itemflag:hide_enchants
+      - type:52
+      - amount:1
+      - name:&9Spawneur à Creepers (1)
+      - lore1:&8&m----------------------------
+      - 'lore2:'
+      - "lore3:&9➜ &b750⛁"
+      - 'lore4:'
+      - lore5:&8&m----------------------------
+    RewardType: COMMAND
+    Reward:
+      - spawneradmin give %player% CREEPER 0 false 1
+    PriceType: POINTS
+    Price: 750.0
+    Message: "&9➜ &bTu as bien re\u00e7u ton spawner à creepers !"
+    ExtraPermission: ''
+    InventoryLocation: 30
+    CloseShopAfterPurchase: false
+  spider:
+    MenuItem:
+      - enchantment:DURABILITY#1
+      - itemflag:hide_enchants
+      - type:52
+      - amount:1
+      - name:&9Spawneur à Araignées  (1)
+      - lore1:&8&m----------------------------
+      - 'lore2:'
+      - "lore3:&9➜ &b600⛁"
+      - 'lore4:'
+      - lore5:&8&m----------------------------
+    RewardType: COMMAND
+    Reward:
+      - spawneradmin give %player% SPIDER 0 false 1
+    PriceType: POINTS
+    Price: 600.0
+    Message: "&9➜ &bTu as bien re\u00e7u ton spawner à araignées !"
+    ExtraPermission: ''
+    InventoryLocation: 31
+    CloseShopAfterPurchase: false
+  golem:
+    MenuItem:
+      - enchantment:DURABILITY#1
+      - itemflag:hide_enchants
+      - type:52
+      - amount:1
+      - name:&9Spawneur à Golems de Fer  (1)
+      - lore1:&8&m----------------------------
+      - 'lore2:'
+      - "lore3:&9➜ &b1800⛁"
+      - 'lore4:'
+      - lore5:&8&m----------------------------
+    RewardType: COMMAND
+    Reward:
+      - spawneradmin give %player% IRON_GOLEM 0 false 1
+    PriceType: POINTS
+    Price: 1800.0
+    Message: "&9➜ &bTu as bien re\u00e7u ton spawner à golems !"
+    ExtraPermission: ''
+    InventoryLocation: 32
+    CloseShopAfterPurchase: false
+  cz:
+    MenuItem:
+      - enchantment:DURABILITY#1
+      - itemflag:hide_enchants
+      - type:52
+      - amount:1
+      - name:&9Spawneur à Cochons Zombies  (1)
+      - lore1:&8&m----------------------------
+      - 'lore2:'
+      - "lore3:&9➜ &b1000⛁"
+      - 'lore4:'
+      - lore5:&8&m----------------------------
+    RewardType: COMMAND
+    Reward:
+      - spawneradmin give %player% PIG_ZOMBIE 0 false 1
+    PriceType: POINTS
+    Price: 1000.0
+    Message: "&9➜ &bTu as bien re\u00e7u ton spawner à cochons zombies !"
+    ExtraPermission: ''
+    InventoryLocation: 33
+    CloseShopAfterPurchase: false
+  witch:
+    MenuItem:
+      - enchantment:DURABILITY#1
+      - itemflag:hide_enchants
+      - type:52
+      - amount:1
+      - name:&9Spawneur à Sorcières  (1)
+      - lore1:&8&m----------------------------
+      - 'lore2:'
+      - "lore3:&9➜ &b2000⛁"
+      - 'lore4:'
+      - lore5:&8&m----------------------------
+    RewardType: COMMAND
+    Reward:
+      - spawneradmin give %player% WITCH 0 false 1
+    PriceType: POINTS
+    Price: 2000.0
+    Message: "&9➜ &bTu as bien re\u00e7u ton spawner à sorcières !"
+    ExtraPermission: ''
+    InventoryLocation: 34
+    CloseShopAfterPurchase: false
+  Menu:
+    MenuItem:
+      - type:351:1
+      - amount:1
+      - name:&c&l➜ &cRetour
+    RewardType: PLAYERCOMMAND
+    PriceType: NOTHING
+    Reward:
+      - vip
+    Message: ''
+    ExtraPermission: ''
+    InventoryLocation: 54
+  panelBleu1:
+    MenuItem:
+      - type:160:3
+      - amount:1
+      - enchantment:DAMAGE_ALL#5
+      - itemflag:hide_enchants
+      - name:&d
+    RewardType: NOTHING
+    PriceType: NOTHING
+    Message: ''
+    ExtraPermission: ''
+    InventoryLocation: 1
+  panelBleu2:
+    MenuItem:
+      - type:160:3
+      - amount:1
+      - enchantment:DAMAGE_ALL#5
+      - itemflag:hide_enchants
+      - name:&d
+    RewardType: NOTHING
+    PriceType: NOTHING
+    Message: ''
+    ExtraPermission: ''
+    InventoryLocation: 2
+  panelBleu3:
+    MenuItem:
+      - type:160:3
+      - amount:1
+      - name:&d
+      - enchantment:DAMAGE_ALL#5
+      - itemflag:hide_enchants
+    RewardType: NOTHING
+    PriceType: NOTHING
+    Message: ''
+    ExtraPermission: ''
+    InventoryLocation: 8
+  panelBleu4:
+    MenuItem:
+      - type:160:3
+      - amount:1
+      - enchantment:DAMAGE_ALL#5
+      - itemflag:hide_enchants
+      - name:&d
+    RewardType: NOTHING
+    PriceType: NOTHING
+    Message: ''
+    ExtraPermission: ''
+    InventoryLocation: 9
+  panelBleu5:
+    MenuItem:
+      - type:160:3
+      - amount:1
+      - enchantment:DAMAGE_ALL#5
+      - itemflag:hide_enchants
+      - name:&d
+    RewardType: NOTHING
+    PriceType: NOTHING
+    Message: ''
+    ExtraPermission: ''
+    InventoryLocation: 10
+  panelBleu6:
+    MenuItem:
+      - type:160:3
+      - amount:1
+      - enchantment:DAMAGE_ALL#5
+      - itemflag:hide_enchants
+      - name:&d
+    RewardType: NOTHING
+    PriceType: NOTHING
+    Message: ''
+    ExtraPermission: ''
+    InventoryLocation: 18
+  panelBleu7:
+    MenuItem:
+      - type:160:3
+      - amount:1
+      - enchantment:DAMAGE_ALL#5
+      - itemflag:hide_enchants
+      - name:&d
+    RewardType: NOTHING
+    PriceType: NOTHING
+    Message: ''
+    ExtraPermission: ''
+    InventoryLocation: 37
+  panelBleu8:
+    MenuItem:
+      - type:160:3
+      - amount:1
+      - name:&d
+      - enchantment:DAMAGE_ALL#5
+      - itemflag:hide_enchants
+    RewardType: NOTHING
+    PriceType: NOTHING
+    Message: ''
+    ExtraPermission: ''
+    InventoryLocation: 46
+  panelBleu9:
+    MenuItem:
+      - type:160:3
+      - amount:1
+      - enchantment:DAMAGE_ALL#5
+      - itemflag:hide_enchants
+      - name:&d
+    RewardType: NOTHING
+    PriceType: NOTHING
+    Message: ''
+    ExtraPermission: ''
+    InventoryLocation: 47
+  panelBleu10:
+    MenuItem:
+      - type:160:3
+      - amount:1
+      - enchantment:DAMAGE_ALL#5
+      - itemflag:hide_enchants
+      - name:&d
+    RewardType: NOTHING
+    PriceType: NOTHING
+    Message: ''
+    ExtraPermission: ''
+    InventoryLocation: 45
+  panelBleu11:
+    MenuItem:
+      - type:160:3
+      - amount:1
+      - enchantment:DAMAGE_ALL#5
+      - itemflag:hide_enchants
+      - name:&d
+    RewardType: NOTHING
+    PriceType: NOTHING
+    Message: ''
+    ExtraPermission: ''
+    InventoryLocation: 53

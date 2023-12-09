@@ -1,6 +1,7 @@
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
 import WebsocketClients from 'App/Models/WebsocketClients'
 import User from 'App/Models/User'
+import ServerSetting from "App/Models/ServerSetting";
 
 export default class extends BaseSeeder {
     public async run() {
@@ -29,6 +30,11 @@ export default class extends BaseSeeder {
             secret: "azeergrzegzregzzeg5egreg2",
             id: "1",
             type: 'minecraft'
+        })
+
+        await ServerSetting.create({
+            maintenanceMode: 'none',
+            maintenanceMessage: '§cLe serveur est en maintenance.'
         })
     }
 }

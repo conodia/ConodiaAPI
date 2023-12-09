@@ -7,4 +7,6 @@ export enum OpCodes {
     STAFF_CONNEXION_SUCCESS = 5,
     STAFF_CONNEXION_FAIL = 6,
     SANCTION_CREATED = 7,
+    REQUEST_EMERGENCY = 8,
+    EMERGENCY = 9,
 }
